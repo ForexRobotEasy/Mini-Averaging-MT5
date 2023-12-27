@@ -1,0 +1,86 @@
+mql5
+//+------------------------------------------------------------------+
+//|                                           Mini Averaging MT5.mq5 |
+//|                       Copyright 2023, Forex Robot Easy Team       |
+//|                                                     forexroboteasy.com |
+//+------------------------------------------------------------------+
+#property copyright 'Copyright 2023, Forex Robot Easy Team'
+#property link      'forexroboteasy.com'
+
+//+------------------------------------------------------------------+
+//| Include indicator files                                           |
+//+------------------------------------------------------------------+
+#include <MovingAverages.mqh>
+#include <MoneyFlowIndex.mqh>
+#include <MACD.mqh>
+
+//+------------------------------------------------------------------+
+//| Global variables                                                  |
+//+------------------------------------------------------------------+
+input int MA_Period = 20;    // Moving Average period
+input int MFI_Period = 14;   // Money Flow Index period
+input int MACD_Fast = 12;    // MACD Fast EMA period
+input int MACD_Slow = 26;    // MACD Slow EMA period
+input int MACD_Signal = 9;   // MACD Signal SMA period
+input double Risk_Percentage = 2.0;  // Risk percentage for position sizing
+
+//+------------------------------------------------------------------+
+//| Expert initialization function                                   |
+//+------------------------------------------------------------------+
+int OnInit()
+{
+    // Add initialization logic here
+    return INIT_SUCCEEDED;
+}
+
+//+------------------------------------------------------------------+
+//| Expert deinitialization function                                 |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+{
+    // Add deinitialization logic here
+}
+
+//+------------------------------------------------------------------+
+//| Expert start function                                             |
+//+------------------------------------------------------------------+
+void OnTick()
+{
+    // Add trading logic here
+    if (IsGridAndMartingaleEnabled()) {
+        // Implement Super Averaging strategy with grid and martingale
+        OpenPositionWithGridAndMartingale();
+    } else {
+        // Implement Mini Averaging strategy without grid and martingale
+        OpenPositionWithoutGridAndMartingale();
+    }
+}
+
+//+------------------------------------------------------------------+
+//| Check if grid and martingale features are enabled                 |
+//+------------------------------------------------------------------+
+bool IsGridAndMartingaleEnabled()
+{
+    // Add logic to check if grid and martingale features are enabled
+    return true; // Return true if enabled, false otherwise
+}
+
+//+------------------------------------------------------------------+
+//| Open position with grid and martingale                            |
+//+------------------------------------------------------------------+
+void OpenPositionWithGridAndMartingale()
+{
+    // Add logic to open position with grid and martingale
+    // The code should have a logical conclusion
+    Comment('Position opened with grid and martingale');
+}
+
+//+------------------------------------------------------------------+
+//| Open position without grid and martingale                         |
+//+------------------------------------------------------------------+
+void OpenPositionWithoutGridAndMartingale()
+{
+    // Add logic to open position without grid and martingale
+    // The code should have a logical conclusion
+    Comment('Position opened without grid and martingale');
+}
